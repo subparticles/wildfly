@@ -7,7 +7,7 @@ USER jboss
 ENV LANG C.UTF-8
 
 RUN mkdir -p /opt/jboss/wildfly/modules/org/postgresql/main/
-ADD module.xml /opt/jboss/wildfly/modules/org/postgresql/main/
+ADD --chown=jboss:jboss module.xml /opt/jboss/wildfly/modules/org/postgresql/main/
 
 RUN curl -L https://jdbc.postgresql.org/download/postgresql-42.2.6.jar -o /opt/jboss/wildfly/modules/org/postgresql/main/postgresql-42.2.6.jar
 
