@@ -11,6 +11,10 @@ ADD module.xml /opt/jboss/wildfly/modules/org/postgresql/main/
 
 RUN curl -L https://jdbc.postgresql.org/download/postgresql-42.2.6.jar -o /opt/jboss/wildfly/modules/org/postgresql/main/postgresql-42.2.6.jar
 
+# Create Data Folder
+ARG DATA_FOLDER
+RUN mkdir -p $DATA_FOLDER
+
 #Enable debug
 RUN echo 'JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=*:8787,server=y,suspend=n"' >> /opt/jboss/wildfly/bin/standalone.conf
 
